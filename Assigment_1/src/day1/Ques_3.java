@@ -1,29 +1,49 @@
+/* Implement a simple calculator program that takes two numbers and an operator (+, -, *, /) as 
+input and performs the operation using switch-case. */
+
 package day1;
 
 import java.util.Scanner;
 
 public class Ques_3 {
 
-	public static void main(String[] args)
-    {
-		 Scanner sc = new Scanner(System.in);
-		 System.out.println("Enter a Year : ");
-	                int year = sc.nextInt();
-        //Write your logic here
-        if(year % 4 == 0){
-            
-            if(year % 100 == 0){
-                if(year % 400 == 0){
-                    System.out.println("Leap Year");
-                }else{
-                    System.out.println("`Not Leap Year");
-                }
-            }else{
-                System.out.println("Leap Year");
-            }
-        }else{
-            System.out.println("Not Leap Year");
-        }
-        sc.close();
-    }
-}
+	 public static void main(String[] args) {
+	        Scanner input = new Scanner(System.in);
+	        double num1, num2, result;
+	        char operator;
+
+	        System.out.print("Enter first number: ");
+	        num1 = input.nextDouble();
+
+	        System.out.print("Enter an operator (+, -, *, /): ");
+	        operator = input.next().charAt(0);
+
+	        System.out.print("Enter second number: ");
+	        num2 = input.nextDouble();
+
+	        switch (operator) {
+	            case '+':
+	                result = num1 + num2;
+	                break;
+	            case '-':
+	                result = num1 - num2;
+	                break;
+	            case '*':
+	                result = num1 * num2;
+	                break;
+	            case '/':
+	                if (num2 != 0) {
+	                    result = num1 / num2;
+	                } else {
+	                    System.out.println("Error: Division by zero is not allowed.");
+	                    return;
+	                }
+	                break;
+	            default:
+	                System.out.println("Error: Invalid operator.");
+	                return;
+	        }
+
+	        System.out.println("Result: " + result);
+	    }
+	}
